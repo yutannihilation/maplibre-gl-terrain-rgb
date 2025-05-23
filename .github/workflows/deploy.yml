@@ -22,8 +22,20 @@ jobs:
           node-version: 20
           cache: pnpm
 
+      - name: Checkout dev version of maplibre-gl
+        uses: actions/checkout@v4
+        with:
+          repository: maplibre/maplibre-gl-js
+          path: '../maplibre-gl-js'
+
       - name: Install dependencies
-        run: pnpm install
+        run: |
+          cd ../maplibre-gl-js
+          pnpm install          
+          pnpm run build-dist
+
+          cd -
+          pnpm install
 
       - name: build
         env:
