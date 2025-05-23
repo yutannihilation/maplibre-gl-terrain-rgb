@@ -26,15 +26,15 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: maplibre/maplibre-gl-js
-          path: '../maplibre-gl-js'
 
       - name: Install dependencies
         run: |
-          cd ../maplibre-gl-js
+          cd ./maplibre-gl-js
           pnpm install          
           pnpm run build-dist
-
+          
           cd -
+          mv ./maplibre-gl-js ../
           pnpm install
 
       - name: build
