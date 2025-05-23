@@ -11,6 +11,9 @@ importers:
       '@sveltejs/adapter-auto':
         specifier: ^6.0.0
         version: 6.0.1(@sveltejs/kit@2.21.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.32.1)(vite@6.3.5))(svelte@5.32.1)(vite@6.3.5))
+      '@sveltejs/adapter-static':
+        specifier: ^3.0.8
+        version: 3.0.8(@sveltejs/kit@2.21.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.32.1)(vite@6.3.5))(svelte@5.32.1)(vite@6.3.5))
       '@sveltejs/kit':
         specifier: ^2.16.0
         version: 2.21.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.32.1)(vite@6.3.5))(svelte@5.32.1)(vite@6.3.5)
@@ -20,9 +23,6 @@ importers:
       maplibre-gl:
         specifier: file:../maplibre-gl-js
         version: file:../maplibre-gl-js
-      maplibre-gl-gsi-terrain:
-        specifier: ^2.2.2
-        version: 2.2.2
       svelte:
         specifier: ^5.0.0
         version: 5.32.1
@@ -351,6 +351,11 @@ packages:
     peerDependencies:
       '@sveltejs/kit': ^2.0.0
 
+  '@sveltejs/adapter-static@3.0.8':
+    resolution: {integrity: sha512-YaDrquRpZwfcXbnlDsSrBQNCChVOT9MGuSg+dMAyfsAa1SmiAhrA5jUYUiIMC59G92kIbY/AaQOWcBdq+lh+zg==}
+    peerDependencies:
+      '@sveltejs/kit': ^2.0.0
+
   '@sveltejs/kit@2.21.1':
     resolution: {integrity: sha512-vLbtVwtDcK8LhJKnFkFYwM0uCdFmzioQnif0bjEYH1I24Arz22JPr/hLUiXGVYAwhu8INKx5qrdvr4tHgPwX6w==}
     engines: {node: '>=18.13'}
@@ -514,9 +519,6 @@ packages:
 
   magic-string@0.30.17:
     resolution: {integrity: sha512-sNPKHvyjVf7gyjwS4xGTaW/mCnF8wnjtifKBEhxfZ7E/S8tQ0rssrwGNn6q8JH/ohItJfSQp9mBtQYuTlH5QnA==}
-
-  maplibre-gl-gsi-terrain@2.2.2:
-    resolution: {integrity: sha512-5ZRA6A/f8W/fRqeTnv+6vL3EqTYqVdqjI7z+SqVOfZBuiuRLQxmAz5fYqKgkfRYe877+3xsr6+GOhoyFASpwsA==}
 
   maplibre-gl@file:../maplibre-gl-js:
     resolution: {directory: ../maplibre-gl-js, type: directory}
@@ -886,6 +888,10 @@ snapshots:
     dependencies:
       '@sveltejs/kit': 2.21.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.32.1)(vite@6.3.5))(svelte@5.32.1)(vite@6.3.5)
 
+  '@sveltejs/adapter-static@3.0.8(@sveltejs/kit@2.21.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.32.1)(vite@6.3.5))(svelte@5.32.1)(vite@6.3.5))':
+    dependencies:
+      '@sveltejs/kit': 2.21.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.32.1)(vite@6.3.5))(svelte@5.32.1)(vite@6.3.5)
+
   '@sveltejs/kit@2.21.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.32.1)(vite@6.3.5))(svelte@5.32.1)(vite@6.3.5)':
     dependencies:
       '@sveltejs/acorn-typescript': 1.0.5(acorn@8.14.1)
@@ -1050,8 +1056,6 @@ snapshots:
   magic-string@0.30.17:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.0
-
-  maplibre-gl-gsi-terrain@2.2.2: {}
 
   maplibre-gl@file:../maplibre-gl-js:
     dependencies:
