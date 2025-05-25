@@ -15,7 +15,7 @@
       ["linear"],
       ["elevation"],
       // original code: https://github.com/NathanMOlson/NathanMOlson.github.io/blob/9fccba3165751dea4253c38c389e99494e43e83a/color_relief/index.html#L46-L59
-      // 
+      //
       // 地理院標高タイルの換算は、10倍して10,000を引く
       // cf. https://zenn.dev/shi_works/articles/6f50506d5bc3b0
          0   * scale * 10 - 10000, "#c0e0ffff",
@@ -26,7 +26,12 @@
       1200   * scale * 10 - 10000, "#adb7a3ff",
       1700   * scale * 10 - 10000, "#bfbfb8ff",
       1750   * scale * 10 - 10000, "#e6f4fdff",
-      3000   * scale * 10 - 10000, "#ffffffff"
+      3000   * scale * 10 - 10000, "#ffffffff",
+      // nodata (補間されてしまうのでエッジの表示がおかしいが、とりあえずそれっぽくなる)
+      828860.7, "#ffffffff",  // (2^23 - 1) * 0.1 - 10000
+      828860.8, "#00000000",  //  2^23      * 0.1 - 10000
+      // 標高0m以下 (ほんとはちゃんとグラデーションさせた方がいいが、とりあえず 0m と同じ色にする)
+      828860.9, "#c0e0ffff",  // (2^23 + 1) * 0.1 - 10000
     ];
   };
 
@@ -58,6 +63,7 @@
             tiles: [
               "https://cyberjapandata.gsi.go.jp/xyz/dem_png/{z}/{x}/{y}.png",
             ],
+            maxzoom: 14,
             tileSize: 256,
           },
           pale: {
